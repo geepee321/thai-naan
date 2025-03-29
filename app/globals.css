@@ -2,23 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-900;
+  }
 }
 
-body {
-  @apply text-gray-900;
-}
+@layer components {
+  /* Custom styles for form inputs */
+  .form-input {
+    @apply rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500;
+  }
 
-/* Custom styles for form inputs */
-input,
-textarea {
-  @apply rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500;
-}
+  /* Custom animation classes */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
 
-/* Custom animation classes */
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
+  /* Custom container styles */
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Custom section padding */
+  section {
+    @apply py-16 md:py-24;
+  }
+
+  /* Custom heading styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Custom button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-orange-500 text-white hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+  }
 }
 
 @keyframes fadeIn {
@@ -30,32 +61,4 @@ textarea {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Custom container styles */
-.container {
-  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
-}
-
-/* Custom section padding */
-section {
-  @apply py-16 md:py-24;
-}
-
-/* Custom heading styles */
-h1, h2, h3, h4, h5, h6 {
-  @apply font-bold tracking-tight;
-}
-
-/* Custom button styles */
-.btn {
-  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors duration-200;
-}
-
-.btn-primary {
-  @apply bg-orange-500 text-white hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
-}
-
-.btn-secondary {
-  @apply bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
 } 

@@ -1,66 +1,11 @@
-"use client"
-
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { useState } from 'react'
 
 export default function Contact() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  })
-
-  const [status, setStatus] = useState({
-    submitted: false,
-    submitting: false,
-    error: null as string | null,
-  })
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setStatus({ submitted: false, submitting: true, error: null })
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message')
-      }
-      
-      setStatus({ submitted: true, submitting: false, error: null })
-      setFormData({ name: '', email: '', phone: '', message: '' })
-      
-      alert('Thank you for your message! We will get back to you soon.')
-    } catch (error) {
-      setStatus({ 
-        submitted: false, 
-        submitting: false, 
-        error: error instanceof Error ? error.message : 'Failed to send message. Please try again.' 
-      })
-    }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
 
   return (
     <section className="bg-white py-20" id="contact">
@@ -77,7 +22,7 @@ export default function Contact() {
           
           <div className="grid gap-8 md:grid-cols-2">
             <div>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                     Name
@@ -86,9 +31,6 @@ export default function Contact() {
                     type="text"
                     id="name"
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
                   />
                 </div>
@@ -101,9 +43,6 @@ export default function Contact() {
                     type="email"
                     id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
                   />
                 </div>
@@ -116,8 +55,6 @@ export default function Contact() {
                     type="tel"
                     id="phone"
                     name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
                   />
                 </div>
@@ -130,23 +67,15 @@ export default function Contact() {
                     id="message"
                     name="message"
                     rows={4}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"
                   />
                 </div>
-
-                {status.error && (
-                  <div className="text-red-500 text-sm">{status.error}</div>
-                )}
                 
                 <button
                   type="submit"
-                  disabled={status.submitting}
-                  className="w-full rounded-md bg-orange-500 px-4 py-2 text-white hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:opacity-50"
+                  className="w-full rounded-md bg-orange-500 px-4 py-2 text-white hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
-                  {status.submitting ? 'Sending...' : 'Send Message'}
+                  Send Message
                 </button>
               </form>
             </div>

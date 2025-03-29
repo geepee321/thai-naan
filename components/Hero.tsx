@@ -1,5 +1,3 @@
-"use client"
-
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
@@ -8,7 +6,7 @@ export default function Hero() {
     <div className="relative h-screen min-h-[600px] w-full">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80"
+          src="/images/hero-bg.jpg"
           alt="Delicious catering spread"
           fill
           className="object-cover brightness-50"

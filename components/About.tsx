@@ -1,5 +1,3 @@
-"use client"
-
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
@@ -22,12 +20,10 @@ export default function About() {
         >
           <div className="relative h-[400px] overflow-hidden rounded-lg md:h-[500px]">
             <Image
-              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80"
+              src="/images/team.jpg"
               alt="Our catering team in action"
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
-              priority
             />
           </div>
           

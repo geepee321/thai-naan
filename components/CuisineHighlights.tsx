@@ -1,5 +1,3 @@
-"use client"
-
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
@@ -8,22 +6,22 @@ const cuisines = [
   {
     title: 'Western Cuisine',
     description: 'Classic European and modern Australian dishes crafted with precision and elegance.',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80',
+    image: '/images/western.jpg',
   },
   {
     title: 'Thai Cuisine',
     description: 'Authentic Thai flavors featuring fresh herbs, spices, and traditional cooking methods.',
-    image: 'https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&q=80',
+    image: '/images/thai.jpg',
   },
   {
     title: 'Chinese Cuisine',
     description: 'Traditional and modern Chinese dishes perfect for any celebration.',
-    image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80',
+    image: '/images/chinese.jpg',
   },
   {
     title: 'Custom Menus',
     description: 'Bespoke menu creation tailored to your specific preferences and dietary requirements.',
-    image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80',
+    image: '/images/custom.jpg',
   },
 ]
 
@@ -60,9 +58,7 @@ export default function CuisineHighlights() {
                     src={cuisine.image}
                     alt={cuisine.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     className="object-cover"
-                    priority={index === 0}
                   />
                 </div>
                 <div className="p-6">
