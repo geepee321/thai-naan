@@ -2,6 +2,7 @@
   "name": "thai-naan",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://geepee321.github.io/thai-naan",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
