@@ -3,35 +3,32 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-const testimonials = [
-  {
-    name: 'Sarah Chen',
-    role: 'Corporate Event Manager',
-    company: 'Tech Solutions Sydney',
-    content: "Chatswood Catering exceeded our expectations for our company's annual gathering. The variety and quality of food was outstanding, and their service was impeccable.",
-  },
-  {
-    name: 'Michael Thompson',
-    role: 'Wedding Client',
-    company: '',
-    content: 'They made our special day even more memorable with their amazing food and presentation. The fusion of Western and Asian cuisines was exactly what we wanted.',
-  },
-  {
-    name: 'Rev. David Wilson',
-    role: 'Church Committee Head',
-    company: 'St. Andrews Church',
-    content: 'We regularly use Chatswood Catering for our community events. Their attention to dietary requirements and budget-friendly options make them our go-to caterer.',
-  },
-]
-
 export default function Testimonials() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
 
+  const testimonials = [
+    {
+      name: 'Sarah Chen',
+      role: 'Corporate Event Manager',
+      content: 'The team at Thai Naan provided an exceptional catering service for our company event. The food was delicious and the presentation was stunning.',
+    },
+    {
+      name: 'Michael Thompson',
+      role: 'Wedding Planner',
+      content: 'I&apos;ve worked with many caterers, but Thai Naan stands out for their attention to detail and fantastic Thai cuisine. My clients are always impressed.',
+    },
+    {
+      name: 'Emily Wong',
+      role: 'Birthday Celebration Host',
+      content: 'The food was amazing and the service was impeccable. All my guests were raving about the authentic Thai flavors.',
+    },
+  ]
+
   return (
-    <section className="bg-gray-50 py-20" id="testimonials">
+    <section id="testimonials" className="bg-gray-50 py-20">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -42,35 +39,24 @@ export default function Testimonials() {
           <h2 className="mb-12 text-center text-3xl font-bold text-gray-900 md:text-4xl">
             What Our Clients Say
           </h2>
-          
           <div className="grid gap-8 md:grid-cols-3">
             {testimonials.map((testimonial, index) => (
               <motion.div
-                key={testimonial.name}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className="rounded-lg bg-white p-6 shadow-lg"
               >
                 <div className="mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="inline h-5 w-5 text-yellow-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+                  <svg className="h-8 w-8 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
                 </div>
-                <p className="mb-4 text-gray-600">"{testimonial.content}"</p>
+                <p className="mb-4 text-gray-600">{testimonial.content}</p>
                 <div>
                   <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-sm text-gray-600">
-                    {testimonial.role}
-                    {testimonial.company && ` • ${testimonial.company}`}
-                  </p>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
                 </div>
               </motion.div>
             ))}

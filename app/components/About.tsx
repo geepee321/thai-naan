@@ -11,7 +11,7 @@ export default function About() {
   })
 
   return (
-    <section className="bg-white py-20" id="about">
+    <section id="about" className="bg-white py-20">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -20,45 +20,44 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="grid gap-8 md:grid-cols-2"
         >
-          <div className="relative h-[400px] overflow-hidden rounded-lg md:h-[500px]">
+          <div className="relative h-[400px] md:h-[500px]">
             <Image
-              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80"
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070"
               alt="Our catering team in action"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
               priority
+              className="rounded-lg object-cover"
             />
           </div>
-          
           <div className="flex flex-col justify-center">
             <h2 className="mb-6 text-3xl font-bold text-gray-900 md:text-4xl">
-              Your Premier Catering Partner in Chatswood
+              About Thai Naan
             </h2>
-            <p className="mb-4 text-lg text-gray-600">
-              At Chatswood Catering, we bring over a decade of culinary expertise to your special events. Our passionate team combines local ingredients with international flavors to create memorable dining experiences.
+            <p className="mb-4 text-gray-600">
+              We&apos;re passionate about bringing authentic Thai flavors to your special events. With years of experience in catering, we understand that every event is unique and deserves a personalized touch.
             </p>
-            <p className="mb-6 text-lg text-gray-600">
-              Whether you're planning an intimate gathering or a large corporate event, we customize our services to match your vision and exceed your expectations.
+            <p className="mb-6 text-gray-600">
+              Our team of skilled chefs combines traditional Thai cooking techniques with modern presentation to create an unforgettable dining experience for your guests. From intimate gatherings to large corporate events, we ensure every dish is prepared with the finest ingredients and attention to detail.
             </p>
-            <ul className="grid gap-4 text-gray-600">
+            <ul className="space-y-3 text-gray-600">
               <li className="flex items-center">
-                <svg className="mr-2 h-6 w-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="mr-2 h-5 w-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
-                Fresh, Local Ingredients
+                Fresh, locally sourced ingredients
               </li>
               <li className="flex items-center">
-                <svg className="mr-2 h-6 w-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="mr-2 h-5 w-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
-                Customizable Menus
+                Customizable menu options
               </li>
               <li className="flex items-center">
-                <svg className="mr-2 h-6 w-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="mr-2 h-5 w-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
-                Professional Service Staff
+                Professional and reliable service
               </li>
             </ul>
           </div>
